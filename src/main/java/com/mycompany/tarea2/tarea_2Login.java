@@ -2,6 +2,7 @@ package com.mycompany.tarea2;
 
 import static com.mycompany.tarea2.datosComprobador.password;
 import static com.mycompany.tarea2.datosComprobador.username;
+//import com.mycompany.tarea2.tarea_2Data.timer;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -21,6 +22,7 @@ import javax.swing.SwingUtilities;
 public class tarea_2Login extends javax.swing.JFrame {        
     static int option;
     static String tiempoRefres;
+    static int timer=0;
     public tarea_2Login() throws IOException, InterruptedException {
     String password=null;
     String username=null;    
@@ -52,6 +54,7 @@ public class tarea_2Login extends javax.swing.JFrame {
         buttonVerify = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialog1.setPreferredSize(new java.awt.Dimension(700, 206));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 182));
@@ -299,16 +302,17 @@ public class tarea_2Login extends javax.swing.JFrame {
             option = 1
         ;}else{option=2;}          
         tiempoRefres = tiempoRefresco.getText();  
+        if("Tiempo de refresco".equals(tiempoRefres)|| Integer.parseInt
+        (tiempoRefres)< 3||Integer.parseInt(tiempoRefres)>120){tiempoRefres="3";
+        } else {}
         mostrarTiempo.setText("Tiempo ingresado: "+tiempoRefres+"s");
         try {
             Thread.sleep(1*1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(tarea_2Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tarea_2Data data = new tarea_2Data();data.setVisible(true);  
-        
-        
-    
+        tarea_2Data data = new tarea_2Data();data.setVisible(true);
+        int timer = 1; 
     }//GEN-LAST:event_okActionPerformed
 
     private void jLabel1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jLabel1InputMethodTextChanged

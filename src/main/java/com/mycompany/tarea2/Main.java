@@ -118,14 +118,13 @@ public class Main {
             }
             promHume = promHume/humedadAcumulada.size();
             promTemp = promTemp/temperaturaAcumulada.size();
-            promHume = promHume/humedadAcumulada.size();
+            promCo2 = promCo2/co2Acumulada.size();
             
             System.out.println("acceso: "+a.acceso);
             System.out.println("access_code: "+a.access_code);        
             System.out.println("\n"+humedad+": "+Float.parseFloat(Humedad));
             System.out.println(temperatura+": "+Float.parseFloat(Temperatura));
-            System.out.println(co2+": "+Integer.parseInt(Co2));   
-            Thread.sleep(refre*1000);            
+            System.out.println(co2+": "+Integer.parseInt(Co2));          
         }
     }
 }
