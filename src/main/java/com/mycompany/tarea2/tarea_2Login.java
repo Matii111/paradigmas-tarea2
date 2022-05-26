@@ -279,8 +279,8 @@ public class tarea_2Login extends javax.swing.JFrame {
         try {
             Thread.sleep(4*1000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(tarea_2Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(tarea_2Login.class.getName()).log(Level.SEVERE, null, ex);            
+        }        
     if(Main.pasarDato!=null){
         jLabel1.setText(datosComprobador.username);
         jDialog1.setVisible(true);
