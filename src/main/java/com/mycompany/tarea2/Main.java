@@ -10,7 +10,7 @@ public class Main {
     static int refre=3;
     
         public static String invertirString(String invertirString){                    
-            invertirString = invertirString.replace("null", "");  //aa
+            invertirString = invertirString.replace("null", ""); 
             StringBuilder strb = new StringBuilder(invertirString);
             invertirString = strb.reverse().toString();       
             return invertirString;
