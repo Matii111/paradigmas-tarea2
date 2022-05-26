@@ -12,25 +12,49 @@ public class Main {
     static int refre=3;
     static float promHume=0;
     static float humedadMax=0;
-    static float humedadMin=0;
-    
+    static float humedadMin=0;    
     static float promTemp=0;
     static float tempMax=0;
-    static float tempMin=0;
-    
+    static float tempMin=0;    
     static float promCo2=0;
     static float Co2Max=0;
-    static float Co2Min=0;
-    
+    static float Co2Min=0;   
+        public static String obtenerDatos(String consulta,int valor){
+                String Humedad=null;String humedad = null;
+                String Temperatura=null;String temperatura = null;
+                String Co2=null;String co2 = null;String retorno=null;
+                int ver=0;
+                int dato=0;   
+                for(char c: consulta.toCharArray()){
+                    if(c==34){ver=1;}
+                    if(c==58){ver=0;dato+=1;}               
+                    if(ver==0&&c>=48&&c<=57||c==46||c==45){
+                        if(dato==1){Humedad= String.valueOf(c)+Humedad;}
+                        if(dato==2){Temperatura= String.valueOf(c)+Temperatura;}
+                        if(dato==3){Co2= String.valueOf(c)+Co2;}                
+                    }                                
+                    if(ver==1&&c!=34){
+                        if(dato==0){humedad = String.valueOf(c)+humedad;}
+                        if(dato==1){temperatura = String.valueOf(c)+temperatura;}
+                        if(dato==2){co2 = String.valueOf(c)+co2;}                    
+                    }                    
+                }                       
+                switch(valor) {
+                case 1 -> retorno=Humedad;
+                case 2 -> retorno=Temperatura;
+                case 3 -> retorno=Co2;
+                case 4 -> retorno=humedad;
+                case 5 -> retorno=temperatura;
+                case 6 -> retorno=co2;
+              }                
+                return retorno;
+            }
         public static String invertirString(String invertirString){                    
             invertirString = invertirString.replace("null", "");  //aa
             StringBuilder strb = new StringBuilder(invertirString);
             invertirString = strb.reverse().toString();       
             return invertirString;
-        }        
-
-
-        
+        }                
     public static void main(String[] arg)throws IOException, InterruptedException{
         new tarea_2Login().setVisible(true); 
         String user=null;
@@ -48,11 +72,6 @@ public class Main {
         while(count<3){
             if(refre>=3&&refre<120&&tarea_2Login.tiempoRefres!=null){
             refre = Integer.parseInt(tarea_2Login.tiempoRefres);}
-            int ver=0;
-            int dato=0;            
-            String Humedad=null;String humedad = null;
-            String Temperatura=null;String temperatura = null;
-            String Co2=null;String co2 = null;
             String code_url=null; 
             a = new GetClient().makeRequestPost(user,pass);
             if(a.access_code!=null){            
@@ -62,30 +81,16 @@ public class Main {
             code_url = "https://sjlt81ef5i.execute-api.us-east-1.amazonaws.com/"
                     + "sensors?access_code="+a.access_code;        
             GetClient Consulta = new GetClient();
-            String consulta = Consulta.GET(code_url);                      
-            for(char c: consulta.toCharArray()){
-                if(c==34){ver=1;}
-                if(c==58){ver=0;dato+=1;}               
-                if(ver==0&&c>=48&&c<=57||c==46||c==45){
-                    if(dato==1){Humedad= String.valueOf(c)+Humedad;}
-                    if(dato==2){Temperatura= String.valueOf(c)+Temperatura;}
-                    if(dato==3){Co2= String.valueOf(c)+Co2;}                
-                }                                
-                if(ver==1&&c!=34){
-                    if(dato==0){humedad = String.valueOf(c)+humedad;}
-                    if(dato==1){temperatura = String.valueOf(c)+temperatura;}
-                    if(dato==2){co2 = String.valueOf(c)+co2;}                    
-                }               
-            }
-            humedad = invertirString(humedad);Humedad = invertirString(Humedad);
-            temperatura = invertirString(temperatura);Temperatura = invertirString
-            (Temperatura);
-            co2 = invertirString(co2);Co2 = invertirString(Co2);   
-
+            String consulta = Consulta.GET(code_url);             
+            String Humedad = invertirString(obtenerDatos(consulta,1));
+            String Temperatura = invertirString(obtenerDatos(consulta,2));
+            String Co2 = invertirString(obtenerDatos(consulta,3));
+            String humedad = invertirString(obtenerDatos(consulta,4));
+            String temperatura = invertirString(obtenerDatos(consulta,5));
+            String co2 = invertirString(obtenerDatos(consulta,6));               
             pasarHumedad=Humedad;
             pasarTemp=Temperatura;
-            pasarCo2=Co2;
-            
+            pasarCo2=Co2;            
             humedadAcumulada.add(Humedad);
             for (int x=0; x< humedadAcumulada.size(); x++) {                
               String hume=humedadAcumulada.get(x);                  
