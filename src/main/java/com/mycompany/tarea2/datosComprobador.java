@@ -1,8 +1,8 @@
 package com.mycompany.tarea2;
 
-public class datosComprobador {    
-    static String username;
-    static String password;
+public class datosComprobador {                                                 //almacena los datos extraidos  desde   las   label 
+    static String username;                                                     //hasta el archivo  'Main'  para   poder   trabajar
+    static String password;                                                     //con                                         ellos
     public datosComprobador(){
     }
     public datosComprobador(String username,String password){

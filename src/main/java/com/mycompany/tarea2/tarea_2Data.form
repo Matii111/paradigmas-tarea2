@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -36,7 +36,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[900, 268]"/>
+          <Dimension value="[800, 268]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -46,41 +46,49 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="nombreTemp" alignment="0" pref="79" max="32767" attributes="0"/>
-                      <Component id="nombreHumedad" alignment="0" max="32767" attributes="0"/>
-                      <Component id="nombreCo2" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="valorHumedad" alignment="0" pref="115" max="32767" attributes="0"/>
-                      <Component id="valorCo2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="valortemp" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="minHume" alignment="0" max="32767" attributes="0"/>
-                      <Component id="minTem" alignment="0" max="32767" attributes="0"/>
-                      <Component id="minCo2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="minTag" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="promHume" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="promTem" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="promCo2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="promTag" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="nombreTemp" alignment="0" pref="79" max="32767" attributes="0"/>
+                              <Component id="nombreHumedad" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nombreCo2" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="valorHumedad" alignment="0" pref="115" max="32767" attributes="0"/>
+                              <Component id="valorCo2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="valortemp" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="minHume" alignment="0" max="32767" attributes="0"/>
+                              <Component id="minTem" alignment="0" max="32767" attributes="0"/>
+                              <Component id="minCo2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="minTag" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="promHume" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="promTem" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="promCo2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="promTag" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="maxTag" min="-2" max="-2" attributes="0"/>
+                              <Component id="maxCo2" min="-2" max="-2" attributes="0"/>
+                              <Component id="maxTem" min="-2" max="-2" attributes="0"/>
+                              <Component id="maxHume" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="volver" min="-2" pref="85" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="maxTag" min="-2" max="-2" attributes="0"/>
-                      <Component id="maxCo2" min="-2" max="-2" attributes="0"/>
-                      <Component id="maxTem" min="-2" max="-2" attributes="0"/>
-                      <Component id="maxHume" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="334" max="32767" attributes="0"/>
+                  <EmptySpace pref="234" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,7 +125,9 @@
                       <Component id="promCo2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="maxCo2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <Component id="volver" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -144,9 +154,6 @@
               <Connection code="hume+&quot; %&quot;" type="code"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="valorHumedadAncestorAdded"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="tarea_2Data_valorHumedad"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -158,10 +165,6 @@
               <Connection code="Main.pasarCo2+&quot; PPM&quot;" type="code"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="valorCo2AncestorAdded"/>
-            <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="valorCo2AncestorRemoved"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="valortemp">
           <Properties>
@@ -169,10 +172,6 @@
               <Connection code="temp" type="code"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="valortempAncestorAdded"/>
-            <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="valortempAncestorRemoved"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="minHume">
           <Properties>
@@ -233,6 +232,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="MAX"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="volver">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&lt;- volver"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="volverActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

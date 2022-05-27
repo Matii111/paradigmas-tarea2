@@ -23,7 +23,7 @@ public class GetClient {
         this.get = null;
         this.respuesta = null;
     }
-    public String GET(String url){
+    public String GET(String url){                                              //Funcion  que    ejecuta    la    llamada    'get'
         this.get = new HttpGet(url);        
         try{
             this.response = this.httpClient.execute(this.get);
@@ -33,26 +33,29 @@ public class GetClient {
         }       
         return this.respuesta;
     }
-     public datosClient makeRequestPost(String username,String password) throws UnsupportedEncodingException, IOException{
+     public datosClient makeRequestPost(String username,String password)        //Funcion  que   ejecuta    la    llamada    'post'
+             throws UnsupportedEncodingException, IOException{
         String urlFinal = "https://sjlt81ef5i.execute-api.us-east-1.amazonaws."
                         + "com/login";
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpPost request = new HttpPost(urlFinal);
         request.addHeader("accept", "application/json");                
-        String json = "{\"username\": \""+username+"\",\"password\": \""+password+"\"}";
+        String json = "{\"username\": \""+username+"\",\"password\": \""+
+                password+"\"}";
         StringEntity entity = new StringEntity(json);
         request.setEntity(entity);
         request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");        
         HttpResponse response = httpClient.execute(request);        
         datosClient myObject = null;        
-        BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));            
+        BufferedReader rd = new BufferedReader(new InputStreamReader(response.
+                getEntity().getContent()));            
         StringBuffer result = new StringBuffer();
         String line;
         while ((line = rd.readLine()) != null) {
             result.append(line);
         }
         String jsonResponse = result.toString();        
-        myObject = new ObjectMapper().readValue(jsonResponse, datosClient.class);        
+        myObject = new ObjectMapper().readValue(jsonResponse,datosClient.class);        
         return myObject;        
     }
 }

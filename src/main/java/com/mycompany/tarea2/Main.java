@@ -1,9 +1,8 @@
 package com.mycompany.tarea2;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 public class Main {       
-    static int count;
+    static int count=0;
     static String pasarDato=null;
     static String pasarDato2=null;
     static String pasarHumedad=null;
@@ -19,10 +18,10 @@ public class Main {
     static float promCo2=0;
     static float Co2Max=0;
     static float Co2Min=0;   
-        public static String obtenerDatos(String consulta,int valor){
-                String Humedad=null;String humedad = null;
-                String Temperatura=null;String temperatura = null;
-                String Co2=null;String co2 = null;String retorno=null;
+        public static String obtenerDatos(String consulta,int valor){           //funcion obtenerDatos se encarga de leer el string
+                String Humedad=null;String humedad = null;                      //tomando cada  caracter   unificandolos   en   los  
+                String Temperatura=null;String temperatura = null;              //distintos             datos            requeridos
+                String Co2=null;String co2 = null;String retorno=null;          
                 int ver=0;
                 int dato=0;   
                 for(char c: consulta.toCharArray()){
@@ -35,7 +34,8 @@ public class Main {
                     }                                
                     if(ver==1&&c!=34){
                         if(dato==0){humedad = String.valueOf(c)+humedad;}
-                        if(dato==1){temperatura = String.valueOf(c)+temperatura;}
+                        if(dato==1){temperatura = String.valueOf(c)+
+                                temperatura;}
                         if(dato==2){co2 = String.valueOf(c)+co2;}                    
                     }                    
                 }                       
@@ -49,38 +49,37 @@ public class Main {
               }                
                 return retorno;
             }
-        public static String invertirString(String invertirString){                    
-            invertirString = invertirString.replace("null", "");  //aa
+        public static String invertirString(String invertirString){             //la funcion invertirString toma un string   y   lo          
+            invertirString = invertirString.replace("null", "");                //     retorna                            invertido
             StringBuilder strb = new StringBuilder(invertirString);
             invertirString = strb.reverse().toString();       
             return invertirString;
         }                
-    public static void main(String[] arg)throws IOException, InterruptedException{
-        new tarea_2Login().setVisible(true); 
+    public static void main(String[]arg)throws IOException,InterruptedException{
+        new tarea_2Login().setVisible(true);                                    //se      inicializa     la      ventana     "main"
         String user=null;
         String pass=null;              
-        datosClient a = new GetClient().makeRequestPost(user,pass);  
-        while(user==null && pass ==null || a.message!=null){
-            user = datosComprobador.username;
-            pass = datosComprobador.password;  
-            a = new GetClient().makeRequestPost(user,pass);     
+        datosClient a = new GetClient().makeRequestPost(user,pass);             //mediante   la   funcion    "makeRequestPost"    y  
+        while(user==null && pass ==null || a.message!=null){                    //el while  de  la  linea '63' se   comprueba   que   
+            user = datosComprobador.username;                                   //el  usuario  y  contrasenia  sean  los  correctos  
+            pass = datosComprobador.password;                                   
+            a = new GetClient().makeRequestPost(user,pass);                     
             System.out.println(user+pass);
         }
         ArrayList<String> humedadAcumulada = new ArrayList<>();
         ArrayList<String> temperaturaAcumulada = new ArrayList<>();
         ArrayList<String> co2Acumulada = new ArrayList<>();
-        while(count<3){
-            if(refre>=3&&refre<120&&tarea_2Login.tiempoRefres!=null){
+        while(count==0){                                                        //while que realiza  constantemente   la   consulta
+            if(refre>=3&&refre<120&&tarea_2Login.tiempoRefres!=null){           //"post"              al                        url
             refre = Integer.parseInt(tarea_2Login.tiempoRefres);}
             String code_url=null; 
-            a = new GetClient().makeRequestPost(user,pass);
-            if(a.access_code!=null){            
-                pasarDato = a.acceso;
-                pasarDato2=a.access_code
-            ;}
+            a = new GetClient().makeRequestPost(user,pass);                     //se         realiza          consulta         post
+            if(a.access_code!=null){                                            
+                pasarDato=a.acceso;
+                pasarDato2=a.access_code;}            
             code_url = "https://sjlt81ef5i.execute-api.us-east-1.amazonaws.com/"
-                    + "sensors?access_code="+a.access_code;        
-            GetClient Consulta = new GetClient();
+                    + "sensors?access_code="+a.access_code;                    
+            GetClient Consulta = new GetClient();            
             String consulta = Consulta.GET(code_url);             
             String Humedad = invertirString(obtenerDatos(consulta,1));
             String Temperatura = invertirString(obtenerDatos(consulta,2));
@@ -90,8 +89,8 @@ public class Main {
             String co2 = invertirString(obtenerDatos(consulta,6));               
             pasarHumedad=Humedad;
             pasarTemp=Temperatura;
-            pasarCo2=Co2;            
-            humedadAcumulada.add(Humedad);
+            pasarCo2=Co2;                        
+            humedadAcumulada.add(Humedad);            
             for (int x=0; x< humedadAcumulada.size(); x++) {                
               String hume=humedadAcumulada.get(x);                  
               if(humedadMin==0){humedadMin=Float.parseFloat(hume);}              
@@ -123,13 +122,7 @@ public class Main {
             }
             promHume = promHume/humedadAcumulada.size();
             promTemp = promTemp/temperaturaAcumulada.size();
-            promCo2 = promCo2/co2Acumulada.size();
-            
-            System.out.println("acceso: "+a.acceso);
-            System.out.println("access_code: "+a.access_code);        
-            System.out.println("\n"+humedad+": "+Float.parseFloat(Humedad));
-            System.out.println(temperatura+": "+Float.parseFloat(Temperatura));
-            System.out.println(co2+": "+Integer.parseInt(Co2));          
+            promCo2 = promCo2/co2Acumulada.size();      
         }
     }
 }

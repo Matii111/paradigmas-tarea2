@@ -1,26 +1,16 @@
 package com.mycompany.tarea2;
-import static com.mycompany.tarea2.Main.pasarHumedad;
-import static com.mycompany.tarea2.Main.pasarCo2;
-import static com.mycompany.tarea2.Main.pasarTemp;
 import static com.mycompany.tarea2.tarea_2Login.tiempoRefres;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JLabel;
 import javax.swing.Timer;
 public class tarea_2Data extends javax.swing.JFrame {         
-    float hum = (Float.parseFloat(Main.pasarHumedad))/100;
-    float tem = Float.parseFloat(Main.pasarTemp);
-    float temf = (float) (Float.parseFloat(Main.pasarTemp)*1.8+32);
-    String hume = String.format("%.2f",hum);
-    String temp = String.format("%.2f",tem);  
-    String tempf = String.format("%.2f",temf);  
-    float humAlmacenada = 0;
-    float temAlmacenada = 0;
-    int co2Almacenada = 0;
+    float hum ;float tem ;float temf ;
+    String hume ;String temp ;String tempf ;
+    float humAlmacenada ;float temAlmacenada ;int co2Almacenada;
     public tarea_2Data() {        
-        if(tarea_2Login.option==2){temp = temp+" °C";}
-        if(tarea_2Login.option==1){temp = tempf+" °F";}
-        timer.start();
+        if(tarea_2Login.option==2){temp = " °C";}
+        if(tarea_2Login.option==1){temp = " °F";}    
+        timer.start();                                                          //se inicializa el timer para actualizar los  datos
         initComponents();        
     }    
     tarea_2Data(tarea_2Login aThis, boolean b) {        
@@ -49,10 +39,11 @@ public class tarea_2Data extends javax.swing.JFrame {
         minTag = new javax.swing.JLabel();
         promTag = new javax.swing.JLabel();
         maxTag = new javax.swing.JLabel();
+        volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 268));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 268));
 
         nombreHumedad.setText("Humedad:");
 
@@ -61,39 +52,10 @@ public class tarea_2Data extends javax.swing.JFrame {
         nombreCo2.setText("co2:");
 
         valorHumedad.setText(hume+" %");
-        valorHumedad.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                valorHumedadAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
 
         valorCo2.setText(Main.pasarCo2+" PPM");
-        valorCo2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                valorCo2AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                valorCo2AncestorRemoved(evt);
-            }
-        });
 
         valortemp.setText(temp);
-        valortemp.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                valortempAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                valortempAncestorRemoved(evt);
-            }
-        });
 
         minHume.setText("           ");
 
@@ -119,40 +81,52 @@ public class tarea_2Data extends javax.swing.JFrame {
 
         maxTag.setText("MAX");
 
+        volver.setText("<- volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nombreTemp, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                    .addComponent(nombreHumedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nombreCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(64, 64, 64)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(valorHumedad, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(valorCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(valortemp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(minHume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(minTem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(minCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(minTag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(promHume)
-                    .addComponent(promTem)
-                    .addComponent(promCo2)
-                    .addComponent(promTag))
-                .addGap(59, 59, 59)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(maxTag)
-                    .addComponent(maxCo2)
-                    .addComponent(maxTem)
-                    .addComponent(maxHume))
-                .addContainerGap(334, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreTemp, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(nombreHumedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nombreCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(valorHumedad, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(valorCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(valortemp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(minHume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(minTem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(minCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(minTag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(promHume)
+                            .addComponent(promTem)
+                            .addComponent(promCo2)
+                            .addComponent(promTag))
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(maxTag)
+                            .addComponent(maxCo2)
+                            .addComponent(maxTem)
+                            .addComponent(maxHume)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,84 +157,66 @@ public class tarea_2Data extends javax.swing.JFrame {
                     .addComponent(minCo2)
                     .addComponent(promCo2)
                     .addComponent(maxCo2))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(volver)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    Timer timer = new Timer (Integer.parseInt(tiempoRefres)*1000, new ActionListener ()
-{
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        dispose();
+    }//GEN-LAST:event_volverActionPerformed
+    Timer timer = new Timer (Integer.parseInt(tiempoRefres)                     //timer que actualiza los valores de  la  tabla, el
+            *1000,new ActionListener ()                                         //resto de codigo es el formato   solicitado   para
+{                                                                               //mostrar                 la                  tabla
     @Override
     public void actionPerformed(ActionEvent e)
-    {
-        int comprobador=0;
-
+    {   int comprobador=0;               
         hum = (Float.parseFloat(Main.pasarHumedad));
         tem = Float.parseFloat(Main.pasarTemp);
-        temf = (float) (Float.parseFloat(Main.pasarTemp)*1.8+32);
-        co2Almacenada = Integer.parseInt(Main.pasarCo2);
-                
+        temf = (float) (Float.parseFloat(Main.pasarTemp)*1.8+32);        
+        co2Almacenada = Integer.parseInt(Main.pasarCo2);                
         humAlmacenada = humAlmacenada+hum;        
         hume = String.format("%.2f",hum);
         temp = String.format("%.2f",tem);  
         tempf = String.format("%.2f",temf);
-        valorCo2.setText(Main.pasarCo2+" PPM");
-        if(tarea_2Login.option==2){temp = temp+" °C";}
-        if(tarea_2Login.option==1){temp = tempf+" °F";}
-        valortemp.setText(temp);
-        valorHumedad.setText(hume+"%");
-              
+        valorCo2.setText(Main.pasarCo2+" PPM");           
+        valorHumedad.setText(hume+" %");              
         minHume.setText(Float.toString(Main.humedadMin)+" %");
         promHume.setText(Float.toString(Main.promHume)+" %");
         maxHume.setText(Float.toString(Main.humedadMax)+" %");
         if(tarea_2Login.option==2){
-        minTem.setText(Float.toString(Main.tempMin)+" °C");
-        promTem.setText(Float.toString(Main.promTemp)+" °C");
-        maxTem.setText(Float.toString(Main.tempMax)+" °C");}
+            temp = temp+" °C";
+            valortemp.setText(temp);
+            minTem.setText(Float.toString(Main.tempMin)+" °C");
+            promTem.setText(Float.toString(Main.promTemp)+" °C");
+            maxTem.setText(Float.toString(Main.tempMax)+" °C")
+        ;}
         if(tarea_2Login.option==1){
-        minTem.setText((Float.toString((float) (Main.tempMin*1.8+32)))+" °F");
-        promTem.setText((Float.toString((float) (Main.promTemp*1.8+32)))+" °F");
-        maxTem.setText((Float.toString((float) (Main.tempMax*1.8+32)))+" °F");}
-        
+            temp = tempf+" °F";     
+            valortemp.setText(temp);
+            minTem.setText((Float.toString((float) (Main.tempMin*1.8+32)))+" °F");
+            promTem.setText((Float.toString((float) (Main.promTemp*1.8+32)))+" °F");
+            maxTem.setText((Float.toString((float) (Main.tempMax*1.8+32)))+" °F")
+        ;}        
         minCo2.setText(Float.toString(Main.Co2Min)+" PPM");
         promCo2.setText(Float.toString(Main.promCo2)+" PPM");
-        maxCo2.setText(Float.toString(Main.Co2Max)+" PPM");
-        
-        
+        maxCo2.setText(Float.toString(Main.Co2Max)+" PPM");     
      }
 });
-    private void valorHumedadAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_valorHumedadAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorHumedadAncestorAdded
-
-    private void valorCo2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_valorCo2AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorCo2AncestorAdded
-
-    private void valorCo2AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_valorCo2AncestorRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorCo2AncestorRemoved
-
-    private void valortempAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_valortempAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valortempAncestorAdded
-
-    private void valortempAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_valortempAncestorRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valortempAncestorRemoved
-
     public void main(String args[]) {                    
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -268,7 +224,6 @@ public class tarea_2Data extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel maxCo2;
@@ -289,13 +244,14 @@ public class tarea_2Data extends javax.swing.JFrame {
     private javax.swing.JLabel valorCo2;
     public javax.swing.JLabel valorHumedad;
     private javax.swing.JLabel valortemp;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 
     void setTexto(String sa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     void setText(String sa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }
