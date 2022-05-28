@@ -54,16 +54,24 @@ public class tarea_2Login extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 500));
 
         access_code.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        access_code.setForeground(new java.awt.Color(255, 255, 255));
         access_code.setText("access_code: ");
 
         acceso.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        acceso.setForeground(new java.awt.Color(255, 255, 255));
         acceso.setText("acceso: ");
 
+        accesoData.setForeground(new java.awt.Color(51, 153, 0));
+
+        access_codeData.setForeground(new java.awt.Color(51, 153, 0));
+
         loginExitoso.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        loginExitoso.setForeground(new java.awt.Color(51, 153, 0));
         loginExitoso.setText("Login exitoso!");
 
         optionFahrenheit.setBackground(new java.awt.Color(0, 0, 0));
         optionFahrenheit.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        optionFahrenheit.setForeground(new java.awt.Color(255, 255, 255));
         optionFahrenheit.setText("grados °F");
         optionFahrenheit.setActionCommand("grados");
         optionFahrenheit.setBorder(null);
@@ -73,6 +81,7 @@ public class tarea_2Login extends javax.swing.JFrame {
         tiempoRefresco.setText("Tiempo de refresco");
 
         mostrarTiempo.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        mostrarTiempo.setForeground(new java.awt.Color(51, 153, 0));
 
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete-icon.png"))); // NOI18N
         salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -170,9 +179,11 @@ public class tarea_2Login extends javax.swing.JFrame {
         login.setPreferredSize(new java.awt.Dimension(400, 200));
 
         lblPassword.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("usuario :");
 
         lblUsername.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("contraseña : ");
 
         boxPassword.setBackground(new java.awt.Color(153, 153, 153));
@@ -192,6 +203,7 @@ public class tarea_2Login extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
 
         javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(login);
         login.setLayout(loginLayout);

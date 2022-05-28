@@ -48,40 +48,76 @@ public class tarea_2Data extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 268));
 
+        nombreHumedad.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        nombreHumedad.setForeground(new java.awt.Color(255, 255, 255));
         nombreHumedad.setText("Humedad:");
 
+        nombreTemp.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        nombreTemp.setForeground(new java.awt.Color(255, 255, 255));
         nombreTemp.setText("Temperatura:");
 
+        nombreCo2.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        nombreCo2.setForeground(new java.awt.Color(255, 255, 255));
         nombreCo2.setText("co2:");
 
+        valorHumedad.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        valorHumedad.setForeground(new java.awt.Color(255, 255, 255));
         valorHumedad.setText(hume+" %");
 
+        valorCo2.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        valorCo2.setForeground(new java.awt.Color(255, 255, 255));
         valorCo2.setText(Main.pasarCo2+" PPM");
 
+        valortemp.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        valortemp.setForeground(new java.awt.Color(255, 255, 255));
         valortemp.setText(temp);
 
+        minHume.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        minHume.setForeground(new java.awt.Color(51, 153, 0));
         minHume.setText("           ");
 
+        promHume.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        promHume.setForeground(new java.awt.Color(51, 153, 0));
         promHume.setText("           ");
 
+        maxHume.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        maxHume.setForeground(new java.awt.Color(51, 153, 0));
         maxHume.setText("           ");
 
+        minTem.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        minTem.setForeground(new java.awt.Color(51, 153, 0));
         minTem.setText("           ");
 
+        promTem.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        promTem.setForeground(new java.awt.Color(51, 153, 0));
         promTem.setText("           ");
 
+        maxTem.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        maxTem.setForeground(new java.awt.Color(51, 153, 0));
         maxTem.setText("           ");
 
+        minCo2.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        minCo2.setForeground(new java.awt.Color(51, 153, 0));
         minCo2.setText("           ");
 
+        promCo2.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        promCo2.setForeground(new java.awt.Color(51, 153, 0));
         promCo2.setText("           ");
 
+        maxCo2.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        maxCo2.setForeground(new java.awt.Color(51, 153, 0));
         maxCo2.setText("           ");
 
+        minTag.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        minTag.setForeground(new java.awt.Color(255, 255, 255));
         minTag.setText("MIN");
 
+        promTag.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        promTag.setForeground(new java.awt.Color(255, 255, 255));
         promTag.setText("PROM");
 
+        maxTag.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        maxTag.setForeground(new java.awt.Color(255, 255, 255));
         maxTag.setText("MAX");
 
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home-icon.png"))); // NOI18N
@@ -101,7 +137,7 @@ public class tarea_2Data extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombreTemp, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(nombreTemp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(nombreHumedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(nombreCo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(64, 64, 64)
@@ -130,7 +166,7 @@ public class tarea_2Data extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(volver)))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +197,7 @@ public class tarea_2Data extends javax.swing.JFrame {
                     .addComponent(minCo2)
                     .addComponent(promCo2)
                     .addComponent(maxCo2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(volver)
                 .addContainerGap())
         );
