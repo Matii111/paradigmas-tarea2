@@ -3,7 +3,7 @@ import static com.mycompany.tarea2.tarea_2Login.tiempoRefres;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-public class tarea_2Data extends javax.swing.JFrame {         
+public class tarea_2Data extends javax.swing.JFrame {       
     float hum ;float tem ;float temf ;
     String hume ;String temp ;String tempf ;
     float humAlmacenada ;float temAlmacenada ;int co2Almacenada;
@@ -41,8 +41,11 @@ public class tarea_2Data extends javax.swing.JFrame {
         maxTag = new javax.swing.JLabel();
         volver = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 340));
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 268));
 
         nombreHumedad.setText("Humedad:");
@@ -81,7 +84,8 @@ public class tarea_2Data extends javax.swing.JFrame {
 
         maxTag.setText("MAX");
 
-        volver.setText("<- volver");
+        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home-icon.png"))); // NOI18N
+        volver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -125,7 +129,7 @@ public class tarea_2Data extends javax.swing.JFrame {
                             .addComponent(maxHume)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(volver)))
                 .addContainerGap(234, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,7 +161,7 @@ public class tarea_2Data extends javax.swing.JFrame {
                     .addComponent(minCo2)
                     .addComponent(promCo2)
                     .addComponent(maxCo2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(volver)
                 .addContainerGap())
         );
@@ -170,7 +174,7 @@ public class tarea_2Data extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, 269, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -217,7 +221,7 @@ public class tarea_2Data extends javax.swing.JFrame {
         maxCo2.setText(Float.toString(Main.Co2Max)+" PPM");     
      }
 });
-    public void main(String args[]) {                    
+    public void main(String args[]) {                 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new tarea_2Data().setVisible(true);
